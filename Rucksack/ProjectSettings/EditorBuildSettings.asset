@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mitwirkende.unity
     guid: a736e67d8d5bab96faadf9bbd92c0a90
+  - enabled: 1
+    path: Assets/Scenes/Demo.unity
+    guid: fd251800cf5deee46b3c56c8a97ffe25
   m_configObjects: {}

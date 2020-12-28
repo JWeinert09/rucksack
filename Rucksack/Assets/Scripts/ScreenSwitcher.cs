@@ -25,6 +25,10 @@ public class ScreenSwitcher : MonoBehaviour
         SceneManager.LoadScene("Wiki");
     }
 
+    public void toDemo() {
+        SceneManager.LoadScene("Demo");
+    }
+
     public void quit() {
         Application.Quit();
     }
