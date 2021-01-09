@@ -572,6 +572,10 @@ MonoBehaviour:
   globalWeight: 0
   textValues: {fileID: 347148960}
   textWeights: {fileID: 1249392193}
+  pop_test: {fileID: 5930567006696811366, guid: 2dec5d41bb88f7e82b01ff3d2e2c91da,
+    type: 3}
+  pop_fail: {fileID: 8447853130934065047, guid: 7e11c6b270fcf5f58b68f769efdf3ac2,
+    type: 3}
 --- !u!1 &347148958
 GameObject:
   m_ObjectHideFlags: 0

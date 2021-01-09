@@ -11,9 +11,13 @@ public class GlobalValues : MonoBehaviour
 
     public int globalValue = 0;
     public int globalWeight = 0;
+    private int maxWeight  = 50;
 
     public Text textValues;
     public Text textWeights;
+
+    public GameObject pop_test;
+    public GameObject pop_fail;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,10 @@ public class GlobalValues : MonoBehaviour
         weights[id] = w;
         names[id] = n;
         this.refresh();
+
+        if(globalWeight > maxWeight) {
+            Instantiate(pop_fail, new Vector3(573, 219, 5), Quaternion.identity);
+        }
     }
 
     public void removeItem(int id) {
@@ -74,10 +82,15 @@ public class GlobalValues : MonoBehaviour
     }
 
     public void check() {
+        Text[] check_text = pop_test.GetComponentsInChildren<Text>();
+        System.Random random = new System.Random();
+        string t = "Das Nest enthält: \n";
         for(int i = 0; i < values.Length; i++) {
             if(values[i] != 0) {
-                Debug.Log(names[i] + " hat einen Wert von " + values[i] + " und ein Gewicht von " + weights[i]);
+                t = t + names[i] + ": Wert: " + values[i] + ". Gewicht: " + weights[i] + ".\n";
             }
         }
+        check_text[1].text = t;
+        Instantiate(pop_test, new Vector3(573, 219, 5), Quaternion.identity);
     }
 }
