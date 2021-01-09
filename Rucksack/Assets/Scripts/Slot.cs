@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
+    public GameObject controller;
     public GameObject item
     {
         get
@@ -22,6 +23,10 @@ public class Slot : MonoBehaviour, IDropHandler
         if (!item)
         {
             DragHandeler.itemBeingDragged.transform.SetParent(transform);
+            controller.GetComponent<GlobalValues>().addItem(DragHandeler.itemBeingDragged.GetComponent<ItemValues>().id, 
+                                                            DragHandeler.itemBeingDragged.GetComponent<ItemValues>().value, 
+                                                            DragHandeler.itemBeingDragged.GetComponent<ItemValues>().weight,
+                                                            DragHandeler.itemBeingDragged.GetComponent<ItemValues>().name);
         }
     }
 }
