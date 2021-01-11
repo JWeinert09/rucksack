@@ -39,6 +39,10 @@ public class Item : MonoBehaviour
     public GameObject preGlas;
     public GameObject preSchlüssel;
     public GameObject preUSB;
+    public GameObject preHaarnadel;
+    public GameObject preSchlAn;
+    public GameObject preDose;
+    public GameObject preStift;
 
     public int itemid = 0;
     private int value;
@@ -221,9 +225,13 @@ public class Item : MonoBehaviour
                 itemid++;
                 break;
             case 13:
-                this.name = "Schlüsselanhänger";
-                this.value = 11;
-                this.weight = 3;
+                go = Instantiate(preSchlAn, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                go.GetComponent<ItemValues>().name = "Schlüsselanhänger";
+                go.GetComponent<ItemValues>().value = 11;
+                go.GetComponent<ItemValues>().weight = 3;
+                go.GetComponent<ItemValues>().id = itemid;
+                itemid++;
                 break;
             case 14:
                 go = Instantiate(preGlas, new Vector3(0,0,0), Quaternion.identity);
@@ -262,9 +270,13 @@ public class Item : MonoBehaviour
                 itemid++;
                 break;
             case 18:
-                this.name = "Stift";
-                this.value = 1;
-                this.weight = 8;
+                go = Instantiate(preStift, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                go.GetComponent<ItemValues>().name = "Stift";
+                go.GetComponent<ItemValues>().value = 1;
+                go.GetComponent<ItemValues>().weight = 8;
+                go.GetComponent<ItemValues>().id = itemid;
+                itemid++;
                 break;
             case 19:
                 go = Instantiate(preVerschluss, new Vector3(0,0,0), Quaternion.identity);
@@ -312,9 +324,13 @@ public class Item : MonoBehaviour
                 itemid++;
                 break;
             case 24:
-                this.name = "Pins";
-                this.value = 6;
-                this.weight = 4;
+                go = Instantiate(preHaarnadel, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                go.GetComponent<ItemValues>().name = "Haarnadeln";
+                go.GetComponent<ItemValues>().value = 6;
+                go.GetComponent<ItemValues>().weight = 4;
+                go.GetComponent<ItemValues>().id = itemid;
+                itemid++;
                 break;
             case 25:
                 go = Instantiate(prePerle, new Vector3(0,0,0), Quaternion.identity);
@@ -326,9 +342,13 @@ public class Item : MonoBehaviour
                 itemid++;
                 break;
             case 26:
-                this.name = "leere Dose";
-                this.value = 14;
-                this.weight = 20;
+                go = Instantiate(preDose, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                go.GetComponent<ItemValues>().name = "Leere Dose";
+                go.GetComponent<ItemValues>().value = 14;
+                go.GetComponent<ItemValues>().weight = 20;
+                go.GetComponent<ItemValues>().id = itemid;
+                itemid++;
                 break;
             case 27:
                 this.name = "Armbanduhr";
