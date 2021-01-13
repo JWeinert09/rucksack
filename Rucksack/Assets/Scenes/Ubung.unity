@@ -458,6 +458,8 @@ GameObject:
   - component: {fileID: 298308306}
   - component: {fileID: 298308308}
   - component: {fileID: 298308309}
+  - component: {fileID: 298308310}
+  - component: {fileID: 298308311}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -555,10 +557,15 @@ MonoBehaviour:
   "preSchl\xFCssel": {fileID: 1288577367244036825, guid: af8e9913a5e1ca5e8b903c0884c00aaa,
     type: 3}
   preUSB: {fileID: 4960733563290080078, guid: b524450eaa98e60f09ac1b7104d96918, type: 3}
-  preHaarnadel: {fileID: 0}
-  preSchlAn: {fileID: 0}
-  preDose: {fileID: 0}
-  preStift: {fileID: 0}
+  preHaarnadel: {fileID: 878833288211203359, guid: 37f96604a1791a65e83a06c00fe378c2,
+    type: 3}
+  preSchlAn: {fileID: 5297452966001183121, guid: 3cc03e922addfa1038567eb1df9a2b0f,
+    type: 3}
+  preDose: {fileID: 9035824010988981985, guid: 5ad19444b26621bcea08490bd5208c37, type: 3}
+  preStift: {fileID: 503669662081246660, guid: 0147251446a5f7b5f8ae911d9fb032ef, type: 3}
+  preDiadem: {fileID: 954912107288150895, guid: bb441f19003d462fe843b80573e35230,
+    type: 3}
+  preUhr: {fileID: 3775497751472713515, guid: 9f660e59a87c65b928b19cb85dbe8770, type: 3}
   itemid: 0
 --- !u!114 &298308309
 MonoBehaviour:
@@ -585,14 +592,36 @@ MonoBehaviour:
   - 
   - 
   - 
-  globalValue: 0
-  globalWeight: 0
   textValues: {fileID: 347148960}
   textWeights: {fileID: 1249392193}
   pop_test: {fileID: 6782693408165811600, guid: 2dec5d41bb88f7e82b01ff3d2e2c91da,
     type: 3}
   pop_fail: {fileID: 7010431599327651034, guid: 7e11c6b270fcf5f58b68f769efdf3ac2,
     type: 3}
+--- !u!114 &298308310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298308305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d201a9d10b62d47388263b99d406e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &298308311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298308305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2549219160526221381a85100447f84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &347148958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,7 +3308,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 550, y: 220}
-  m_SizeDelta: {x: 350, y: 30}
+  m_SizeDelta: {x: 400, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805394204
 MonoBehaviour:

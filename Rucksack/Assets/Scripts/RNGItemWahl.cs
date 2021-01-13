@@ -6,7 +6,7 @@ public class RNGItemWahl : MonoBehaviour
 {
     private int[] rng = new int[10];
     
-    private long generateNumber() {
+    public long generateNumber() {
          System.Random r1 = new System.Random();
         System.Random r2 = new System.Random();
         System.Random r3 = new System.Random();

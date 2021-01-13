@@ -43,6 +43,8 @@ public class Item : MonoBehaviour
     public GameObject preSchlAn;
     public GameObject preDose;
     public GameObject preStift;
+    public GameObject preDiadem;
+    public GameObject preUhr;
 
     public int itemid = 0;
     private int value;
@@ -53,27 +55,22 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*slot1 = GameObject.Find("slot1");
-        slot2 = GameObject.Find("slot2");
-        slot3 = GameObject.Find("slot3");
-        slot4 = GameObject.Find("slot4");
-        slot5 = GameObject.Find("slot5");
-        slot6 = GameObject.Find("slot6");
-        slot7 = GameObject.Find("slot7");
-        slot8 = GameObject.Find("slot8");
-        slot9 = GameObject.Find("slot9");
-        slot10 = GameObject.Find("slot10"); */
+        //Generieren von 10 Zufälligen Items
+        for(int i = 0; i < 10; i++) {
+            int random = (int) gameObject.GetComponent<RNGItemWahl>().generateNumber();
+            spawnItem(random, i);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        /*if(Input.GetKeyDown(KeyCode.Space)) {
             spawnItem(0, 0);
             spawnItem(2,1);
             spawnItem(7,2);
             Debug.Log("Event");
-        }
+        } */
     }
 
     public GameObject getSlot(int i) {
@@ -124,7 +121,7 @@ public class Item : MonoBehaviour
                 itemid++;
                 break;
             case 1:
-                go = Instantiate(preAlu, new Vector3(0,0,0), Quaternion.identity);
+                go = Instantiate(preSchraube, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
                 go.GetComponent<ItemValues>().name = "Schraube";
                 go.GetComponent<ItemValues>().value = 2;
@@ -184,9 +181,16 @@ public class Item : MonoBehaviour
                 itemid++;
                 break;
             case 6:
-                this.name = "Diadem";
-                this.value = 17;
-                this.weight = 15;
+                go = Instantiate(preDiadem, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                go.GetComponent<ItemValues>().name = "Diadem";
+                go.GetComponent<ItemValues>().value = 17;
+                go.GetComponent<ItemValues>().weight = 15;
+                go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Diadem";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 17;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 15; 
+                itemid++;
                 break;
             case 7:
                 go = Instantiate(prePatrone, new Vector3(0,0,0), Quaternion.identity);
@@ -429,9 +433,16 @@ public class Item : MonoBehaviour
                 itemid++;
                 break;
             case 27:
-                this.name = "Armbanduhr";
-                this.value = 17;
-                this.weight = 16;
+                go = Instantiate(preUhr, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                go.GetComponent<ItemValues>().name = "Armbanduhr";
+                go.GetComponent<ItemValues>().value = 17;
+                go.GetComponent<ItemValues>().weight = 16;
+                go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Armbanduhr";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 17;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 16; 
+                itemid++;
                 break;
             case 28:
                 go = Instantiate(prePyrit, new Vector3(0,0,0), Quaternion.identity);

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,8 +15,6 @@ public class GlobalValues : MonoBehaviour
     public int[] givenWeights = new int[10];
     public string[] givenNames = new string[10];
  
-    public int globalValue = 0;
-    public int globalWeight = 0;
     private int maxWeight  = 50;
 
     public Text textValues;
@@ -49,7 +47,7 @@ public class GlobalValues : MonoBehaviour
         names[id] = n;
         this.refresh();
 
-        if(globalWeight > maxWeight) {
+        if(this.getGlobalWeight() > maxWeight) {
             Instantiate(pop_fail, new Vector3(573, 219, 5), Quaternion.identity);
         }
     }
@@ -92,13 +90,14 @@ public class GlobalValues : MonoBehaviour
     public void check() {
         Text[] check_text = pop_test.GetComponentsInChildren<Text>();
         System.Random random = new System.Random();
-        string t = "Das Nest enthält: \n";
+       /* string t = "Das Nest enthält: \n";
         for(int i = 0; i < values.Length; i++) {
             if(values[i] != 0) {
                 t = t + names[i] + ": Wert: " + values[i] + ". Gewicht: " + weights[i] + ".\n";
             }
-        }
-        check_text[1].text = t;
+        } */
+        string txt = gameObject.GetComponent<UbungGreedy>().greedy(givenWeights, givenValues, givenNames, names);
+        check_text[1].text = txt;
         Instantiate(pop_test, new Vector3(573, 219, 5), Quaternion.identity);
     }
 }
