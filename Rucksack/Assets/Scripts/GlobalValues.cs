@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class GlobalValues : MonoBehaviour
 {
+    //In Nest befindliche Items
     int[] values = new int[10];
     int[] weights = new int[10];
     string[] names = new string[10];
 
+    //Gegebene Items
+    public int[] givenValues = new int[10];
+    public int[] givenWeights = new int[10];
+    public string[] givenNames = new string[10];
+ 
     public int globalValue = 0;
     public int globalWeight = 0;
     private int maxWeight  = 50;
@@ -72,13 +78,15 @@ public class GlobalValues : MonoBehaviour
     }
 
     public void initialising() {
-        textValues.text = "Gesamtwert = 0";
-        textWeights.text = "Gesamtgewicht = 0";
+        textValues.text = "0";
+        textWeights.text = "0";
     }
 
     public void refresh() {
-        textValues.text = "Gesamtwert = " + this.getGlobalValue();
-        textWeights.text = "Gesamtgewicht = " + this.getGlobalWeight();
+        int v = this.getGlobalValue();
+        int w = this.getGlobalWeight();
+        textValues.text = v.ToString();
+        textWeights.text = w.ToString();
     }
 
     public void check() {

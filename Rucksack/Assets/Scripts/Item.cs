@@ -118,6 +118,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 18;
                 go.GetComponent<ItemValues>().weight = 3;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Ring";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 18;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 1:
@@ -127,6 +130,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 2;
                 go.GetComponent<ItemValues>().weight = 4;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Schraube";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 2;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 2:
@@ -136,6 +142,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 3;
                 go.GetComponent<ItemValues>().weight = 8;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Löffel";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 3;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 8; 
                 itemid++;
                 break;
             case 3:
@@ -145,6 +154,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 8;
                 go.GetComponent<ItemValues>().weight = 12;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Brille";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 8;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 12; 
                 itemid++;
                 break;
             case 4:
@@ -154,6 +166,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 20;
                 go.GetComponent<ItemValues>().weight = 14;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Kette";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 20;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 14; 
                 itemid++;
                 break;
             case 5:
@@ -163,6 +178,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 10;
                 go.GetComponent<ItemValues>().weight = 16;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Spiegel";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 10;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 16; 
                 itemid++;
                 break;
             case 6:
@@ -177,6 +195,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 5;
                 go.GetComponent<ItemValues>().weight = 8;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Patrone";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 5;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 8; 
                 itemid++;
                 break;
             case 8:
@@ -186,6 +207,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 4;
                 go.GetComponent<ItemValues>().weight = 2;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Murmel";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 4;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 2; 
                 itemid++;
                 break;
             case 9:
@@ -195,6 +219,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 6;
                 go.GetComponent<ItemValues>().weight = 6;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "USB-Stick";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 6;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 6; 
                 itemid++;
                 break;
             case 10:
@@ -204,6 +231,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 13;
                 go.GetComponent<ItemValues>().weight = 1;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Alufolie";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 13;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 1; 
                 itemid++;
                 break;
             case 11:
@@ -213,6 +243,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 14;
                 go.GetComponent<ItemValues>().weight = 5;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Brosche";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 14;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 5; 
                 itemid++;
                 break;
             case 12:
@@ -222,6 +255,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 12;
                 go.GetComponent<ItemValues>().weight = 2;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Münze";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 12;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 2; 
                 itemid++;
                 break;
             case 13:
@@ -231,6 +267,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 11;
                 go.GetComponent<ItemValues>().weight = 3;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Schlüsselanhänger";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 11;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 14:
@@ -240,6 +279,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 7;
                 go.GetComponent<ItemValues>().weight = 4;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Glasscherben";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 7;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 15:
@@ -249,6 +291,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 5;
                 go.GetComponent<ItemValues>().weight = 1;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Kronkorken";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 5;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 1; 
                 itemid++;
                 break;
             case 16:
@@ -258,6 +303,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 4;
                 go.GetComponent<ItemValues>().weight = 5;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Schlüssel";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 4;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 5; 
                 itemid++;
                 break;
             case 17:
@@ -267,6 +315,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 2;
                 go.GetComponent<ItemValues>().weight = 3;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Glühbirne";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 2;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 18:
@@ -276,6 +327,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 1;
                 go.GetComponent<ItemValues>().weight = 8;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Stift";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 1;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 8; 
                 itemid++;
                 break;
             case 19:
@@ -285,6 +339,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 5;
                 go.GetComponent<ItemValues>().weight = 3;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Coladosenverschluss";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 5;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 20:
@@ -294,6 +351,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 7;
                 go.GetComponent<ItemValues>().weight = 2;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Sicherheitsnadel";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 7;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 2; 
                 itemid++;
                 break;
             case 21:
@@ -303,6 +363,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 13;
                 go.GetComponent<ItemValues>().weight = 5;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Teelicht";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 13;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 5; 
                 itemid++;
                 break;
             case 22:
@@ -312,6 +375,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 15;
                 go.GetComponent<ItemValues>().weight = 4;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Glöckchen";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 15;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 23:
@@ -321,6 +387,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 8;
                 go.GetComponent<ItemValues>().weight = 10;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "CD";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 8;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 10; 
                 itemid++;
                 break;
             case 24:
@@ -330,6 +399,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 6;
                 go.GetComponent<ItemValues>().weight = 4;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Haarnadeln";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 6;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 25:
@@ -339,6 +411,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 15;
                 go.GetComponent<ItemValues>().weight = 3;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Perle";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 15;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 26:
@@ -348,6 +423,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 14;
                 go.GetComponent<ItemValues>().weight = 20;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Leere Dose";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 14;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 20; 
                 itemid++;
                 break;
             case 27:
@@ -362,6 +440,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 14;
                 go.GetComponent<ItemValues>().weight = 12;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Pyrit";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 14;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 12; 
                 itemid++;
                 break;
             case 29:
@@ -371,6 +452,9 @@ public class Item : MonoBehaviour
                 go.GetComponent<ItemValues>().value = 16;
                 go.GetComponent<ItemValues>().weight = 13;
                 go.GetComponent<ItemValues>().id = itemid;
+                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Quartzkristall";
+                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 16;
+                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 13; 
                 itemid++;
                 break;
             default: 
