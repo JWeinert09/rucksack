@@ -6,8 +6,9 @@ public class RNGItemWahl : MonoBehaviour
 {
     private int[] rng = new int[10];
     
-    public long generateNumber() {
-         System.Random r1 = new System.Random();
+    public int generateNumber() {
+        return Random.Range(1, 30);
+        /*System.Random r1 = new System.Random();
         System.Random r2 = new System.Random();
         System.Random r3 = new System.Random();
         System.Random r4 = new System.Random();
@@ -22,7 +23,7 @@ public class RNGItemWahl : MonoBehaviour
         System.DateTime d3 = System.DateTime.Now.Millisecond;
         System.DateTime d4 = System.DateTime.Now.Millisecond;
         */
-        long z1 = System.DateTime.Now.Millisecond + r4.Next();
+        /*long z1 = System.DateTime.Now.Millisecond + r4.Next();
         for(int i = 0; i < r1.Next(); i++);
         long z2 = System.DateTime.Now.Millisecond + r4.Next();
         for(int i = 0; i < r2.Next(); i++);
@@ -37,7 +38,7 @@ public class RNGItemWahl : MonoBehaviour
         Debug.Log("z4: " + z4);
         */
 
-        long z5 = ((z1 + z3) * (z2 + z4)) % 29;
+        /*long z5 = ((z1 + z3) * (z2 + z4)) % 29;
         
         if(z5 < 0) {
             z5 = z5 *(-1);
@@ -46,7 +47,7 @@ public class RNGItemWahl : MonoBehaviour
         else {
             return z5;
         }
-    }
+    */}
     // Start is called before the first frame update
     void Start()
     {

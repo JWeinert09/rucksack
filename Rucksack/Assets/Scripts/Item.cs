@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Item : MonoBehaviour
 {
@@ -55,10 +56,10 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int[] rng = this.generator(); 
         //Generieren von 10 Zufälligen Items
-        for(int i = 0; i < 10; i++) {
-            int random = (int) gameObject.GetComponent<RNGItemWahl>().generateNumber();
-            spawnItem(random, i);
+        for(int i = 0; i <= 9; i++) {
+            spawnItem(rng[i], i);
         }
     }
 
@@ -72,7 +73,34 @@ public class Item : MonoBehaviour
             Debug.Log("Event");
         } */
     }
-
+    //Generieren von 10 Zufallszahlen
+    public int[] generator() {
+        int[] rng = new int[10];
+        bool db = true;
+        int r = 1;
+        for(int i = 0; i < rng.Length; i++) {
+            for(int j = 0; j < 100; j++) {//Verbesserung des Ergebnises, macht Dopplungen unwahrscheinlicher -> Dauert zu lange für komplettes Filtern
+                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
+                if(rng.Contains(r)) {
+                    //Continue;
+                }
+                else {
+                    rng[i] = r;
+                }
+               /*while(db) {
+                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
+                if(rng.Contains(r)) {
+                    db = false;
+                }
+                else {
+                    db = true;
+                }
+            }*/
+            }
+            //rng[i] = r;
+        }
+        return rng;
+    }
     public GameObject getSlot(int i) {
         switch(i) {
             case 0:
