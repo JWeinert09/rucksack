@@ -516,7 +516,7 @@ MonoBehaviour:
   slot9: {fileID: 1631068397}
   slot10: {fileID: 1570860351}
   preRing: {fileID: 7175452134129192091, guid: 43740ad05a9ed969b97532f0da64f5c5, type: 3}
-  preAlu: {fileID: 1986421461835517976, guid: 10407667728a51cd5b73e1bf1af3a701, type: 3}
+  preAlu: {fileID: 4337755845792106441, guid: 10407667728a51cd5b73e1bf1af3a701, type: 3}
   preBrille: {fileID: 9101615968102061362, guid: 05e486dda8230b1729724f6c3b305dff,
     type: 3}
   preBrosche: {fileID: 3545236201151187616, guid: d57c5dba449bc6bef835f4bd0ec055db,
@@ -566,6 +566,8 @@ MonoBehaviour:
   preDiadem: {fileID: 954912107288150895, guid: bb441f19003d462fe843b80573e35230,
     type: 3}
   preUhr: {fileID: 3775497751472713515, guid: 9f660e59a87c65b928b19cb85dbe8770, type: 3}
+  Preparticle: {fileID: 8413804622303732784, guid: 2fc4bacdfc434d03baa2e82a3436ba9d,
+    type: 3}
   itemid: 0
 --- !u!114 &298308309
 MonoBehaviour:
@@ -3389,7 +3391,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 550, y: 220}
-  m_SizeDelta: {x: 400, y: 30}
+  m_SizeDelta: {x: 500, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805394204
 MonoBehaviour:
