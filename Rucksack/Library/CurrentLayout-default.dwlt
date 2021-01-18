@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 84
+  controlID: 41
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 492}
   m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
-  controlID: 85
+  controlID: 66
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 111
+  controlID: 67
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -212,8 +212,8 @@ MonoBehaviour:
     y: 0
     width: 650
     height: 519
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -264,8 +264,8 @@ MonoBehaviour:
     y: 0
     width: 610
     height: 942
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -322,8 +322,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -655
     m_HBaseRangeMax: 655
-    m_VBaseRangeMin: -190.5
-    m_VBaseRangeMax: 190.5
+    m_VBaseRangeMin: -201
+    m_VBaseRangeMax: 201
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -340,11 +340,11 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 21
+      y: 0
       width: 1310
-      height: 381
+      height: 402
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 655, y: 190.5}
+    m_Translation: {x: 655, y: 201}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -352,9 +352,9 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -655
-      y: -190.5
+      y: -201
       width: 1310
-      height: 381
+      height: 402
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1310, y: 402}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 88
+    y: 0
     width: 1309
     height: 402
   m_ViewDataDictionary: {fileID: 0}
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 345.0791
     speed: 2
-    m_Value: 330.21924
+    m_Value: 345.0791
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -507,9 +507,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1a2d0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b6deffffcadeffff86dfffff94dfffff9cdfffffa4dfffffacdfffffbadfffff6ee0ffff82e0ffffbae0ffffcee0ffffd6e0ffffe0e0ffffe4e0ffffe8e0fffff2e0fffffce0ffff44e1ffff04e2ffff46e2ffffbae2ffff04e3ffff3ce3ffff50e3ffff58e3ffff62e3ffff66e3ffff6ae3ffff74e3ffff78e3ffff68e6ffffb4e6ffffc8e6ffffd0e6ffffd4e6ffffd8e6ffffdce6ffffe6e6fffff0e6ffff72e7ffff86e7ffff8ee7ffff92e7ffff96e7ffff9ae7ffffa4e7ffffaee7ffff28e8ffff3ce8ffff44e8ffff48e8ffff4ce8ffff50e8ffff5ae8ffff64e8ffffd8e8ffffece8fffff4e8fffff8e8fffffce8ffff00e9ffff0ae9ffff14e9ffff88e9ffff9ce9ffffa4e9ffffa8e9fffface9ffffb0e9ffffbae9ffffc4e9ffff32eaffff46eaffff4eeaffff52eaffff56eaffff5aeaffff64eaffff6eeaffffeeeaffff02ebffff0aebffff0eebffff12ebffff16ebffff20ebffff2aebffffa8ebffffbcebffffc4ebffffc8ebffffccebffffd0ebffffdaebffffe4ebffff90ecffffa4ecffffacecffffb0ecffffb4ecffffb8ecffffc2ecffffccecffff54edffff68edffff70edffff74edffff78edffff7cedffff86edffff90edffff68eeffff7ceeffff84eeffff88eeffff8ceeffff90eeffff9aeeffffa4eeffff30efffff44efffff4cefffff50efffff54efffff58efffff62efffff6cefffffd4efffffe8effffff0effffff4effffff8effffffcefffff06f0ffff10f0ffff7af0ffff8ef0ffff96f0ffff9af0ffff9ef0ffffa2f0ffffacf0ffffb6f0fffff0f0ffff26f1ffffacf1ffffecf1ffff3ef2ffff52f2ffff0af3ffff0ef3ffff12f3ffff16f3ffff2cf3ffff38f3ffff10faffff52faffff70faffff5afbffff244100005841000080560000265b0000726400001a690000c06d0000667200000c770000b27b000058800000fe840000fe890000108a00003a8a0000448a00005a8a0000648a00007e8a0000509000009a90000086910000a0910000229200002c920000fc9200000c930000b293000038970000429700009e9d0000
+      m_ExpandedIDs: 5afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -572,20 +572,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Grafik/Effekte
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Grafik/Effekte
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/nikolas/Documents/Unity Projects/rucksack/Rucksack
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fa3d0000
-    m_LastClickedID: 15866
-    m_ExpandedIDs: 00000000f63d0000f83d0000fa3d000000ca9a3b
+    m_SelectedIDs: f83d0000
+    m_LastClickedID: 15864
+    m_ExpandedIDs: 00000000e63d0000e83d0000ea3d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -613,7 +613,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f63d0000f83d0000fa3d0000
+    m_ExpandedIDs: 00000000e63d0000e83d0000ea3d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

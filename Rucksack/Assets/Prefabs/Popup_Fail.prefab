@@ -77,7 +77,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Der Ast war zu schwer. Spast.
+  m_Text: Das Gewicht im Nest war zu schwer. Der Ast konnte das Gewicht nicht halten
+    und ist abgebrochen.
 --- !u!1 &6039015086307878970
 GameObject:
   m_ObjectHideFlags: 0

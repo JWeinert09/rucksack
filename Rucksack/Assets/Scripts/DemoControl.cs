@@ -32,6 +32,10 @@ public class DemoControl : MonoBehaviour
         Debug.Log("Pause");
     }
 
+    public void replay() {
+        Debug.Log("Replay");
+    }
+
     public void sprechblase(string txt) {
         Text[] elster = bubble.GetComponentsInChildren<Text>();
         elster[0].text = txt;
