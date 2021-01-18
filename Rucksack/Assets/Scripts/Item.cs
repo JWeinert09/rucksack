@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Item : MonoBehaviour
 {
@@ -46,19 +47,22 @@ public class Item : MonoBehaviour
     public GameObject preDiadem;
     public GameObject preUhr;
 
+    public GameObject Preparticle;
+
     public int itemid = 0;
     private int value;
     private int weight;
     private string name;
     private GameObject go;
+    private GameObject particle;
 
     // Start is called before the first frame update
     void Start()
     {
+        int[] rng = this.generator(); 
         //Generieren von 10 Zufälligen Items
-        for(int i = 0; i < 10; i++) {
-            int random = (int) gameObject.GetComponent<RNGItemWahl>().generateNumber();
-            spawnItem(random, i);
+        for(int i = 0; i <= 9; i++) {
+            spawnItem(rng[i], i);
         }
     }
 
@@ -72,7 +76,34 @@ public class Item : MonoBehaviour
             Debug.Log("Event");
         } */
     }
-
+    //Generieren von 10 Zufallszahlen
+    public int[] generator() {
+        int[] rng = new int[10];
+        bool db = true;
+        int r = 1;
+        for(int i = 0; i < rng.Length; i++) {
+            for(int j = 0; j < 100; j++) {//Verbesserung des Ergebnises, macht Dopplungen unwahrscheinlicher -> Dauert zu lange für komplettes Filtern
+                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
+                if(rng.Contains(r)) {
+                    //Continue;
+                }
+                else {
+                    rng[i] = r;
+                }
+               /*while(db) {
+                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
+                if(rng.Contains(r)) {
+                    db = false;
+                }
+                else {
+                    db = true;
+                }
+            }*/
+            }
+            //rng[i] = r;
+        }
+        return rng;
+    }
     public GameObject getSlot(int i) {
         switch(i) {
             case 0:
@@ -107,10 +138,15 @@ public class Item : MonoBehaviour
             return;
         }
 
+        
+
         switch(rand) {
             case 0:
                 go = Instantiate(preRing, new Vector3(385, -80, 44), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Ring";
                 go.GetComponent<ItemValues>().value = 18;
                 go.GetComponent<ItemValues>().weight = 3;
@@ -123,6 +159,9 @@ public class Item : MonoBehaviour
             case 1:
                 go = Instantiate(preSchraube, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Schraube";
                 go.GetComponent<ItemValues>().value = 2;
                 go.GetComponent<ItemValues>().weight = 4;
@@ -135,6 +174,9 @@ public class Item : MonoBehaviour
             case 2:
                 go = Instantiate(preLöffel, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Löffel";
                 go.GetComponent<ItemValues>().value = 3;
                 go.GetComponent<ItemValues>().weight = 8;
@@ -147,6 +189,9 @@ public class Item : MonoBehaviour
             case 3:
                 go = Instantiate(preBrille, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Brille";
                 go.GetComponent<ItemValues>().value = 8;
                 go.GetComponent<ItemValues>().weight = 12;
@@ -159,6 +204,9 @@ public class Item : MonoBehaviour
             case 4:
                 go = Instantiate(preKette, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Kette";
                 go.GetComponent<ItemValues>().value = 20;
                 go.GetComponent<ItemValues>().weight = 14;
@@ -171,6 +219,9 @@ public class Item : MonoBehaviour
             case 5:
                 go = Instantiate(preSpiegel, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Spiegel";
                 go.GetComponent<ItemValues>().value = 10;
                 go.GetComponent<ItemValues>().weight = 16;
@@ -183,6 +234,9 @@ public class Item : MonoBehaviour
             case 6:
                 go = Instantiate(preDiadem, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Diadem";
                 go.GetComponent<ItemValues>().value = 17;
                 go.GetComponent<ItemValues>().weight = 15;
@@ -195,6 +249,9 @@ public class Item : MonoBehaviour
             case 7:
                 go = Instantiate(prePatrone, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Patrone";
                 go.GetComponent<ItemValues>().value = 5;
                 go.GetComponent<ItemValues>().weight = 8;
@@ -207,6 +264,9 @@ public class Item : MonoBehaviour
             case 8:
                 go = Instantiate(preMurmel, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Murmel";
                 go.GetComponent<ItemValues>().value = 4;
                 go.GetComponent<ItemValues>().weight = 2;
@@ -219,6 +279,9 @@ public class Item : MonoBehaviour
             case 9:
                 go = Instantiate(preUSB, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "USB-Stick";
                 go.GetComponent<ItemValues>().value = 6;
                 go.GetComponent<ItemValues>().weight = 6;
@@ -231,6 +294,9 @@ public class Item : MonoBehaviour
             case 10:
                 go = Instantiate(preAlu, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Alufolie";
                 go.GetComponent<ItemValues>().value = 13;
                 go.GetComponent<ItemValues>().weight = 1;
@@ -243,6 +309,9 @@ public class Item : MonoBehaviour
             case 11:
                 go = Instantiate(preBrosche, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Brosche";
                 go.GetComponent<ItemValues>().value = 14;
                 go.GetComponent<ItemValues>().weight = 5;
@@ -255,6 +324,9 @@ public class Item : MonoBehaviour
             case 12:
                 go = Instantiate(preMünze, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Münze";
                 go.GetComponent<ItemValues>().value = 12;
                 go.GetComponent<ItemValues>().weight = 2;
@@ -267,6 +339,9 @@ public class Item : MonoBehaviour
             case 13:
                 go = Instantiate(preSchlAn, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Schlüsselanhänger";
                 go.GetComponent<ItemValues>().value = 11;
                 go.GetComponent<ItemValues>().weight = 3;
@@ -279,6 +354,9 @@ public class Item : MonoBehaviour
             case 14:
                 go = Instantiate(preGlas, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Glasscherben";
                 go.GetComponent<ItemValues>().value = 7;
                 go.GetComponent<ItemValues>().weight = 4;
@@ -291,6 +369,9 @@ public class Item : MonoBehaviour
             case 15:
                 go = Instantiate(preKronkorken, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Kronkorken";
                 go.GetComponent<ItemValues>().value = 5;
                 go.GetComponent<ItemValues>().weight = 1;
@@ -303,6 +384,9 @@ public class Item : MonoBehaviour
             case 16:
                  go = Instantiate(preSchlüssel, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Schlüssel";
                 go.GetComponent<ItemValues>().value = 4;
                 go.GetComponent<ItemValues>().weight = 5;
@@ -315,6 +399,9 @@ public class Item : MonoBehaviour
             case 17:
                 go = Instantiate(preGlü, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Glühbirne";
                 go.GetComponent<ItemValues>().value = 2;
                 go.GetComponent<ItemValues>().weight = 3;
@@ -327,6 +414,9 @@ public class Item : MonoBehaviour
             case 18:
                 go = Instantiate(preStift, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Stift";
                 go.GetComponent<ItemValues>().value = 1;
                 go.GetComponent<ItemValues>().weight = 8;
@@ -339,6 +429,9 @@ public class Item : MonoBehaviour
             case 19:
                 go = Instantiate(preVerschluss, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Coladosenverschluss";
                 go.GetComponent<ItemValues>().value = 5;
                 go.GetComponent<ItemValues>().weight = 3;
@@ -351,6 +444,9 @@ public class Item : MonoBehaviour
             case 20:
                 go = Instantiate(preNadel, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Sicherheitsnadel";
                 go.GetComponent<ItemValues>().value = 7;
                 go.GetComponent<ItemValues>().weight = 2;
@@ -363,6 +459,9 @@ public class Item : MonoBehaviour
             case 21:
                 go = Instantiate(preTeelicht, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Teelicht";
                 go.GetComponent<ItemValues>().value = 13;
                 go.GetComponent<ItemValues>().weight = 5;
@@ -375,6 +474,9 @@ public class Item : MonoBehaviour
             case 22:
                 go = Instantiate(preGlö, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Glöckchen";
                 go.GetComponent<ItemValues>().value = 15;
                 go.GetComponent<ItemValues>().weight = 4;
@@ -387,6 +489,9 @@ public class Item : MonoBehaviour
             case 23:
                 go = Instantiate(preCD, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "CD";
                 go.GetComponent<ItemValues>().value = 8;
                 go.GetComponent<ItemValues>().weight = 10;
@@ -399,6 +504,9 @@ public class Item : MonoBehaviour
             case 24:
                 go = Instantiate(preHaarnadel, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Haarnadeln";
                 go.GetComponent<ItemValues>().value = 6;
                 go.GetComponent<ItemValues>().weight = 4;
@@ -411,6 +519,9 @@ public class Item : MonoBehaviour
             case 25:
                 go = Instantiate(prePerle, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Perle";
                 go.GetComponent<ItemValues>().value = 15;
                 go.GetComponent<ItemValues>().weight = 3;
@@ -423,6 +534,9 @@ public class Item : MonoBehaviour
             case 26:
                 go = Instantiate(preDose, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Leere Dose";
                 go.GetComponent<ItemValues>().value = 14;
                 go.GetComponent<ItemValues>().weight = 20;
@@ -435,6 +549,9 @@ public class Item : MonoBehaviour
             case 27:
                 go = Instantiate(preUhr, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Armbanduhr";
                 go.GetComponent<ItemValues>().value = 17;
                 go.GetComponent<ItemValues>().weight = 16;
@@ -447,6 +564,9 @@ public class Item : MonoBehaviour
             case 28:
                 go = Instantiate(prePyrit, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Pyrit";
                 go.GetComponent<ItemValues>().value = 14;
                 go.GetComponent<ItemValues>().weight = 12;
@@ -459,6 +579,9 @@ public class Item : MonoBehaviour
             case 29:
                 go = Instantiate(preQuartz, new Vector3(0,0,0), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
+                particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
+                particle.transform.parent = go.transform;
+                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5);
                 go.GetComponent<ItemValues>().name = "Quartzkristall";
                 go.GetComponent<ItemValues>().value = 16;
                 go.GetComponent<ItemValues>().weight = 13;

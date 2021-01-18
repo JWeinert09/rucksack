@@ -348,7 +348,7 @@ public class UbungGreedy : MonoBehaviour
         int maxweight = 50;
         int endvalue = 0;       //Sortiertes Value
         bool[] algoItemsChosen = new bool[10];
-        if (0 <= (maxweight - weight[0]) & value[0] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[0]) & value[0] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[0];
             endvalue = endvalue + value[0];
@@ -357,7 +357,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[0] = true;
             //Debug.Log("Item " + item[0] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         } 
-        if (0 <= (maxweight - weight[1]) & value[1] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[1]) & value[1] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[1];
             endvalue = endvalue + value[1];
@@ -366,7 +366,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[1] = true;
             //Debug.Log("Item " + item[1] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[2]) & value[2] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[2]) & value[2] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[2];
             endvalue = endvalue + value[2];
@@ -375,7 +375,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[2] = true;
             //Debug.Log("Item " + item[2] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[3]) & value[3] != 0 & chosen < 8)  
+        if (0 <= (maxweight - weight[3]) & value[3] != 0 & chosen < 7)  
         {
             maxweight = maxweight - weight[3];
             endvalue = endvalue + value[3];
@@ -384,7 +384,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[3] = true;
             //Debug.Log("Item " + item[3] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[4]) & value[4] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[4]) & value[4] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[4];
             endvalue = endvalue + value[4];
@@ -393,7 +393,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[4] = true;
             //Debug.Log("Item " + item[4] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[5]) & value[5] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[5]) & value[5] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[5];
             endvalue = endvalue + value[5];
@@ -402,7 +402,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[5] = true;
             //Debug.Log("Item " + item[5] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[6]) & value[6] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[6]) & value[6] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[6];
             endvalue = endvalue + value[6];
@@ -411,7 +411,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[6] = true;
             //Debug.Log("Item " + item[6] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[7]) & value[7] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[7]) & value[7] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[7];
             endvalue = endvalue + value[7];
@@ -420,7 +420,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[7] = true;
             //Debug.Log("Item " + item[7] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[8]) & value[8] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[8]) & value[8] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[8];
             endvalue = endvalue + value[8];
@@ -429,7 +429,7 @@ public class UbungGreedy : MonoBehaviour
             algoItemsChosen[8] = true;
             //Debug.Log("Item " + item[8] + " wurde ausgewählt und der Restplatz beträgt: " + maxweight);
         }
-        if (0 <= (maxweight - weight[9]) & value[9] != 0 & chosen < 8)
+        if (0 <= (maxweight - weight[9]) & value[9] != 0 & chosen < 7)
         {
             maxweight = maxweight - weight[9];
             endvalue = endvalue + value[9];

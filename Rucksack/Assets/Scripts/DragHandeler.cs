@@ -21,7 +21,7 @@ public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         startPosition = transform.position;
         startParent = transform.parent;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
-        item_Text.text = "Aktuelles Item: " + itemBeingDragged.GetComponent<ItemValues>().name + ". Wert: " + itemBeingDragged.GetComponent<ItemValues>().value + ". Gewicht: " + itemBeingDragged.GetComponent<ItemValues>().weight + ".";
+        item_Text.text = "Aktuelles Item: " + itemBeingDragged.GetComponent<ItemValues>().name + ". Gewicht: " + itemBeingDragged.GetComponent<ItemValues>().weight + ". Wert: " + itemBeingDragged.GetComponent<ItemValues>().value;
     }
 
     public void OnDrag(PointerEventData eventData)

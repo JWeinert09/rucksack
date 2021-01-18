@@ -516,7 +516,7 @@ MonoBehaviour:
   slot9: {fileID: 1631068397}
   slot10: {fileID: 1570860351}
   preRing: {fileID: 7175452134129192091, guid: 43740ad05a9ed969b97532f0da64f5c5, type: 3}
-  preAlu: {fileID: 1986421461835517976, guid: 10407667728a51cd5b73e1bf1af3a701, type: 3}
+  preAlu: {fileID: 4337755845792106441, guid: 10407667728a51cd5b73e1bf1af3a701, type: 3}
   preBrille: {fileID: 9101615968102061362, guid: 05e486dda8230b1729724f6c3b305dff,
     type: 3}
   preBrosche: {fileID: 3545236201151187616, guid: d57c5dba449bc6bef835f4bd0ec055db,
@@ -566,6 +566,8 @@ MonoBehaviour:
   preDiadem: {fileID: 954912107288150895, guid: bb441f19003d462fe843b80573e35230,
     type: 3}
   preUhr: {fileID: 3775497751472713515, guid: 9f660e59a87c65b928b19cb85dbe8770, type: 3}
+  Preparticle: {fileID: 8413804622303732784, guid: 2fc4bacdfc434d03baa2e82a3436ba9d,
+    type: 3}
   itemid: 0
 --- !u!114 &298308309
 MonoBehaviour:
@@ -1576,7 +1578,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 596d2fab42045d08a96beb8d28a649bf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23263668d255c2dfeb260b9ef7a365b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3389,7 +3391,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 550, y: 220}
-  m_SizeDelta: {x: 400, y: 30}
+  m_SizeDelta: {x: 500, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805394204
 MonoBehaviour:
@@ -3913,7 +3915,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3991,7 +3993,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
