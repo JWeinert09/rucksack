@@ -221,6 +221,7 @@ public class UbungGreedy : MonoBehaviour
         }
 
         //Item Value/Weight Sortierung
+        float perHelp;
         int sorthelp; //String hinzufügen
         string namehelp;
         for (int i = 9; i > 0; i--)
@@ -229,6 +230,10 @@ public class UbungGreedy : MonoBehaviour
             {
                 if (valueperweight[j] < valueperweight[j + 1])
                 {
+                    perHelp = valueperweight[j];
+                    valueperweight[j] = valueperweight[j+1];
+                    valueperweight[j+1] = valueperweight[j];
+
                     sorthelp = value[j];
                     value[j] = value[j + 1];
                     value[j + 1] = sorthelp;
