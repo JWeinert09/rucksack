@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GlobalValues : MonoBehaviour
 {
+    private bool activePopup = false;
     //In Nest befindliche Items
     int[] values = new int[10];
     int[] weights = new int[10];
@@ -41,6 +42,10 @@ public class GlobalValues : MonoBehaviour
         this.refresh();
     }
 
+    public bool getPop() {
+        return activePopup;
+    }
+
     public void addItem(int id, int v, int w, string n) {
         values[id] = v;
         weights[id] = w;
@@ -49,6 +54,7 @@ public class GlobalValues : MonoBehaviour
 
         if(this.getGlobalWeight() > maxWeight) {
             Instantiate(pop_fail, new Vector3(573, 219, 5), Quaternion.identity);
+            activePopup = true;
         }
     }
 
@@ -88,16 +94,20 @@ public class GlobalValues : MonoBehaviour
     }
 
     public void check() {
-        Text[] check_text = pop_test.GetComponentsInChildren<Text>();
-        System.Random random = new System.Random();
-       /* string t = "Das Nest enthält: \n";
-        for(int i = 0; i < values.Length; i++) {
-            if(values[i] != 0) {
-                t = t + names[i] + ": Wert: " + values[i] + ". Gewicht: " + weights[i] + ".\n";
-            }
-        } */
-        string txt = gameObject.GetComponent<UbungGreedy>().greedy(givenWeights, givenValues, givenNames, names);
-        check_text[1].text = txt;
-        Instantiate(pop_test, new Vector3(573, 219, 5), Quaternion.identity);
+        if(!activePopup) {
+            Text[] check_text = pop_test.GetComponentsInChildren<Text>();
+            System.Random random = new System.Random();
+            /* string t = "Das Nest enthält: \n";
+            for(int i = 0; i < values.Length; i++) {
+                if(values[i] != 0) {
+                    t = t + names[i] + ": Wert: " + values[i] + ". Gewicht: " + weights[i] + ".\n";
+                }
+            } */
+            string txt = gameObject.GetComponent<UbungGreedy>().greedy(givenWeights, givenValues, givenNames, names);
+            check_text[1].text = txt;
+            Instantiate(pop_test, new Vector3(573, 219, 5), Quaternion.identity);
+            activePopup = true;
+        }
+        
     }
 }

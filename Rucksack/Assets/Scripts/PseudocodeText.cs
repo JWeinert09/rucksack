@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class PseudocodeText : MonoBehaviour
 {
     public Text t;
+    public Text elster;
+
+    public void elsterSay(string s) {
+        elster.text = s;
+    }
 
     public void addText(string input) {
         t.text = t.text + input;
