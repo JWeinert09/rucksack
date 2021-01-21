@@ -15,7 +15,7 @@ public class DemoGlobalValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.GetComponent<DemoGreedy>().demo(givenWeights, givenValues, givenNames);
     }
 
     // Update is called once per frame

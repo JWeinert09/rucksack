@@ -12,28 +12,15 @@ public class DemoControl : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            this.sprechblase("Hallo Welt");
-        }
-    }
-
     public void start() {
         Debug.Log("Start");
+        Time.timeScale = 1f;
     }
 
-    public void stop() {
-        Debug.Log("Stop");
-    }
 
     public void pause() {
         Debug.Log("Pause");
-    }
-
-    public void replay() {
-        Debug.Log("Replay");
+        Time.timeScale = 0f;
     }
 
     public void sprechblase(string txt) {

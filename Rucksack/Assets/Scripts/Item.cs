@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -20,7 +20,7 @@ public class Item : MonoBehaviour
     public GameObject preAlu;
     public GameObject preBrille;
     public GameObject preBrosche;
-    public GameObject preCD;
+    public GameObject preCD;  
     public GameObject preGlö;
     public GameObject preGlü;
     public GameObject preKronkorken;

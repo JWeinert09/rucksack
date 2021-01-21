@@ -1,19 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ItemDemo : MonoBehaviour
 {
-   /* public GameObject slot1;
-    public GameObject slot2;
-    public GameObject slot3;
-    public GameObject slot4;
-    public GameObject slot5;
-    public GameObject slot6;
-    public GameObject slot7;
-    public GameObject slot8;
-    public GameObject slot9;
-    public GameObject slot10; */
+    public GameObject islot1;
+    public GameObject islot2;
+    public GameObject islot3;
+    public GameObject islot4;
+    public GameObject islot5;
+    public GameObject islot6;
+    public GameObject islot7;
+    public GameObject islot8;
+    public GameObject islot9;
+    public GameObject islot10;
+
+    public GameObject nslot1;
+    public GameObject nslot2;
+    public GameObject nslot3;
+    public GameObject nslot4;
+    public GameObject nslot5;
+    public GameObject nslot6;
+    public GameObject nslot7;
 
     public GameObject preRing;
     public GameObject preAlu;
@@ -56,9 +65,9 @@ public class ItemDemo : MonoBehaviour
     void Start()
     {
         //Generieren von 10 Zufälligen Items
-        for(int i = 0; i < 10; i++) {
-            int random = (int) gameObject.GetComponent<RNGItemWahl>().generateNumber();
-            spawnItem(random, i);
+       int[] rng = this.generator(); 
+        for(int i = 0; i <= 9; i++) {
+            this.spawnItem(rng[i], i);
         }
     }
 
@@ -73,54 +82,82 @@ public class ItemDemo : MonoBehaviour
         } */
     }
 
-    public Vector3 getSlot(int i) {
+    public GameObject getSlot(int i) {
         switch(i) {
             case 0:
-                return new Vector3(370, -180, 1);
+                return islot1;
             case 1:
-                return new Vector3(370, -180, 1);
+                return islot2;
             case 2:
-                return new Vector3(370, -180, 1);
+                return islot3;
             case 3:
-                return new Vector3(370, -180, 1);
+                return islot4;
             case 4:
-                return new Vector3(370, -180, 1);
+                return islot5;
             case 5:
-                return new Vector3(370, -180, 1);
+                return islot6;
             case 6:
-                return new Vector3(370, -180, 1);
+                return islot7;
             case 7:
-                return new Vector3(370, -180, 1);
+                return islot8;
             case 8:
-                return new Vector3(370, -180, 1);
+                return islot9;
             case 9:
-                return new Vector3(370, -180, 1);
-            default:
+                return islot10;
+            default:    
                 Debug.Log("Error");
-                return new Vector3(0,0,0);
+                return null;
         }
     }
 
-    public Vector3 getNestSlot(int i) {
+    public GameObject getNestSlot(int i) {
         switch(i) {
+            case 0:
+                return nslot1;
             case 1:
-                return new Vector3(510, 358, 1);
+                return nslot2;
             case 2:
-                return new Vector3(510, 250, 1);
+                return nslot3;
             case 3:
-                return new Vector3(510, 135, 1);
+                return nslot4;
             case 4:
-                return new Vector3(510, 30, 1);
+                return nslot5;
             case 5:
-                return new Vector3(620, 358, 1);
+                return nslot6;
             case 6:
-                return new Vector3(620, 250, 1);
-            case 7:
-                return new Vector3(620, 135, 1);
+                return nslot7;
             default:
                 Debug.Log("Error");
-                return new Vector3(0,0,0);    
+                return null;    
         }  
+    }
+
+     public int[] generator() {
+        int[] rng = new int[10];
+        bool db = true;
+        int r = 1;
+        for(int i = 0; i < rng.Length; i++) {
+            for(int j = 0; j < 100; j++) {//Verbesserung des Ergebnises, macht Dopplungen unwahrscheinlicher -> Dauert zu lange für komplettes Filtern
+                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
+                if(rng.Contains(r)) {
+                    //Continue;
+                }
+                else {
+                    rng[i] = r;
+                }
+               /*while(db) {
+                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
+                if(rng.Contains(r)) {
+                    db = false;
+                }
+                else {
+                    db = true;
+                }
+            }*/
+            }
+            //rng[i] = r;
+        }
+        return rng;
     }
 
     public void spawnItem(int rand, int slot) {
@@ -131,213 +168,243 @@ public class ItemDemo : MonoBehaviour
 
         switch(rand) {
             case 0:
-                go = Instantiate(preRing, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Ring";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 18;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
+                go = Instantiate(preRing, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Ring";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 18;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 1:
-                go = Instantiate(preSchraube, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Schraube";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 2;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
+                go = Instantiate(preSchraube, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Schraube";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 2;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 2:
-                go = Instantiate(preLöffel, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Löffel";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 3;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 8; 
+                go = Instantiate(preLöffel, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Löffel";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 3;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 8; 
                 itemid++;
                 break;
             case 3:
-                go = Instantiate(preBrille, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Brille";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 8;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 12; 
+                go = Instantiate(preBrille, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Brille";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 8;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 12; 
                 itemid++;
                 break;
             case 4:
-                go = Instantiate(preKette, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Kette";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 20;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 14; 
+                go = Instantiate(preKette, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Kette";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 20;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 14; 
                 itemid++;
                 break;
             case 5:
-                go = Instantiate(preSpiegel, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Spiegel";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 10;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 16; 
+                go = Instantiate(preSpiegel, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Spiegel";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 10;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 16; 
                 itemid++;
                 break;
             case 6:
-                go = Instantiate(preDiadem, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Diadem";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 17;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 15; 
+                go = Instantiate(preDiadem, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Diadem";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 17;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 15; 
                 itemid++;
                 break;
             case 7:
-                go = Instantiate(prePatrone, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Patrone";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 5;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 8; 
+                go = Instantiate(prePatrone, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Patrone";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 5;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 8; 
                 itemid++;
                 break;
             case 8:
-                go = Instantiate(preMurmel, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Murmel";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 4;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 2; 
+                go = Instantiate(preMurmel, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Murmel";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 4;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 2; 
                 itemid++;
                 break;
             case 9:
-                go = Instantiate(preUSB, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "USB-Stick";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 6;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 6; 
+                go = Instantiate(preUSB, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "USB-Stick";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 6;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 6; 
                 itemid++;
                 break;
             case 10:
-                go = Instantiate(preAlu, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Alufolie";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 13;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 1; 
+                go = Instantiate(preAlu, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Alufolie";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 13;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 1; 
                 itemid++;
                 break;
             case 11:
-                go = Instantiate(preBrosche, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Brosche";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 14;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 5; 
+                go = Instantiate(preBrosche, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Brosche";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 14;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 5; 
                 itemid++;
                 break;
             case 12:
-                go = Instantiate(preMünze, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Münze";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 12;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 2; 
+                go = Instantiate(preMünze, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Münze";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 12;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 2; 
                 itemid++;
                 break;
             case 13:
-                go = Instantiate(preSchlAn, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Schlüsselanhänger";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 11;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
+                go = Instantiate(preSchlAn, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Schlüsselanhänger";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 11;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 14:
-                go = Instantiate(preGlas, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Glasscherben";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 7;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
+                go = Instantiate(preGlas, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Glasscherben";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 7;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 15:
-                go = Instantiate(preKronkorken, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Kronkorken";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 5;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 1; 
+                go = Instantiate(preKronkorken, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Kronkorken";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 5;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 1; 
                 itemid++;
                 break;
             case 16:
-                 go = Instantiate(preSchlüssel, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Schlüssel";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 4;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 5; 
+                 go = Instantiate(preSchlüssel, new Vector3(0,0,0), Quaternion.identity);
+                 go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Schlüssel";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 4;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 5; 
                 itemid++;
                 break;
             case 17:
-                go = Instantiate(preGlü, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Glühbirne";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 2;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
+                go = Instantiate(preGlü, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Glühbirne";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 2;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 18:
-                go = Instantiate(preStift, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Stift";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 1;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 8; 
+                go = Instantiate(preStift, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Stift";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 1;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 8; 
                 itemid++;
                 break;
             case 19:
-                go = Instantiate(preVerschluss, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Coladosenverschluss";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 5;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
+                go = Instantiate(preVerschluss, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Coladosenverschluss";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 5;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 20:
-                go = Instantiate(preNadel, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Sicherheitsnadel";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 7;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 2; 
+                go = Instantiate(preNadel, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Sicherheitsnadel";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 7;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 2; 
                 itemid++;
                 break;
             case 21:
-                go = Instantiate(preTeelicht, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Teelicht";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 13;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 5; 
+                go = Instantiate(preTeelicht, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Teelicht";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 13;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 5; 
                 itemid++;
                 break;
             case 22:
-                go = Instantiate(preGlö, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Glöckchen";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 15;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
+                go = Instantiate(preGlö, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Glöckchen";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 15;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 23:
-                go = Instantiate(preCD, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "CD";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 8;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 10; 
+                go = Instantiate(preCD, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "CD";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 8;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 10; 
                 itemid++;
                 break;
             case 24:
-                go = Instantiate(preHaarnadel, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Haarnadeln";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 6;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 4; 
+                go = Instantiate(preHaarnadel, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Haarnadeln";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 6;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 4; 
                 itemid++;
                 break;
             case 25:
-                go = Instantiate(prePerle, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Perle";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 15;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 3; 
+                go = Instantiate(prePerle, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Perle";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 15;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 3; 
                 itemid++;
                 break;
             case 26:
-                go = Instantiate(preDose, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Leere Dose";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 14;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 20; 
+                go = Instantiate(preDose, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Leere Dose";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 14;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 20; 
                 itemid++;
                 break;
             case 27:
-                go = Instantiate(preUhr, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Armbanduhr";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 17;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 16; 
+                go = Instantiate(preUhr, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Armbanduhr";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 17;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 16; 
                 itemid++;
                 break;
             case 28:
-                go = Instantiate(prePyrit, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Pyrit";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 14;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 12; 
+                go = Instantiate(prePyrit, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Pyrit";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 14;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 12; 
                 itemid++;
                 break;
             case 29:
-                go = Instantiate(preQuartz, this.getSlot(slot), Quaternion.identity);
-                gameObject.GetComponent<GlobalValues>().givenNames[itemid] = "Quartzkristall";
-                gameObject.GetComponent<GlobalValues>().givenValues[itemid] = 16;
-                gameObject.GetComponent<GlobalValues>().givenWeights[itemid] = 13; 
+                go = Instantiate(preQuartz, new Vector3(0,0,0), Quaternion.identity);
+                go.transform.parent = this.getSlot(slot).transform;
+                gameObject.GetComponent<DemoGlobalValues>().givenNames[itemid] = "Quartzkristall";
+                gameObject.GetComponent<DemoGlobalValues>().givenValues[itemid] = 16;
+                gameObject.GetComponent<DemoGlobalValues>().givenWeights[itemid] = 13; 
                 itemid++;
                 break;
             default: 

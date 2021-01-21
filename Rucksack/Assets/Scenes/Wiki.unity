@@ -525,6 +525,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1970326457}
+  - {fileID: 1455331529}
   m_Father: {fileID: 90679182}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -614,6 +615,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1455331528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1455331529}
+  - component: {fileID: 1455331531}
+  - component: {fileID: 1455331530}
+  m_Layer: 5
+  m_Name: Biblio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1455331529
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455331528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 762773860}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.25, y: 0}
+  m_AnchorMax: {x: 0.85160404, y: 0.9305143}
+  m_AnchoredPosition: {x: -3.2999878, y: 2.3900146}
+  m_SizeDelta: {x: 3.3251953, y: 4.7875977}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1455331530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455331528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: effe1dbe52efedb0fad8ab8e9ec8a108, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "https://www.fastleansmart.com/blog/das-rucksackproblem/\ngute Einf\xFChrung
+    in das Rucksackproblem im Allgemeinen\n\nhttps://www.bigdata-insider.de/der-greedy-algorithmus-a-843043/
+    \ngute Einf\xFChrung in den Greedy-Algorithmus\n\nhttp://www.tigerjython.ch/download/rucksack.pdf
+    \nbesonders 3. (Greedy-Algorithmus Einf\xFChrung) und 5. (Programmierung in Phyton)\n\nhttps://www.uni-trier.de/fileadmin/fb4/prof/INF/TIN/Folien/GTI_III/ss_2010/VL8.pdf\nSeite
+    6-15 spezifisch zum Greedy-Algorithmus \n\nhttps://www.youtube.com/watch?v=hs6MNddIUtw\neinfache
+    Greedy-Algorithmus Erkl\xE4rung in Videoform (sehr oberfl\xE4chlich)\n\nhttps://www.youtube.com/watch?v=wMVf8lOn-Lc
+    \nVideo in welchem der Algorithmus erkl\xE4rt und vorprogrammiert wird (detailliert)\n\n\tDas
+    Rucksackproblem- ein Optimierungsproblem der Informatik\n      \tEbook (PDF)
+    von Maximilian Schanz, GRIN, 9783668873070, 12,99\u20AC"
+--- !u!222 &1455331531
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455331528}
+  m_CullTransparentMesh: 0
 --- !u!1 &1747358436
 GameObject:
   m_ObjectHideFlags: 0
