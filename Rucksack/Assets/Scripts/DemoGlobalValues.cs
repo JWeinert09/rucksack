@@ -9,13 +9,14 @@ public class DemoGlobalValues : MonoBehaviour
     public int[] givenValues = new int[10];
     public int[] givenWeights = new int[10];
     public string[] givenNames = new string[10];
+    public GameObject[] objects = new GameObject[10];
  
     private int maxWeight  = 50;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<DemoGreedy>().demo(givenWeights, givenValues, givenNames);
+        gameObject.GetComponent<DemoGreedy>().demo(givenWeights, givenValues, givenNames, objects);
     }
 
     // Update is called once per frame
