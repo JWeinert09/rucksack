@@ -7,31 +7,33 @@ public class DemoGreedy : MonoBehaviour
 {
     public void demo(int[] weight, int[] value, string[] name, GameObject[] objects)
     {
+        //Leeren der Textfelder und hinzufügen neuer Texte
         gameObject.GetComponent<PseudocodeText>().clear();
         gameObject.GetComponent<Speechbubble>().clear();
         gameObject.GetComponent<Speechbubble>().addText("Dies ist der Demo-Screen. Mit einem Klick auf den Play-Button beginnt die Demo.");
         
-        Time.timeScale = 0f;
+        Time.timeScale = 0f;//Dient zum Anhalten der Demo
+        //Hinzufügen der Verzögerung
         StartCoroutine(ExecuteAfterTime(2));
         IEnumerator ExecuteAfterTime(float time)
         {
+            //Variablen
             float[] valueperweight = new float[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            int[] weightsubtracted;
-            int[] valueadded;
-            float[] sortierung;
-            int[] item;
-            int[] block;
-
-
-            //Itemliste
-            
             string itemnames;
             string elsa = "Der Algorithmus generiert die Items und \nberechnet den Wert/Gewicht-Quotienten.";
+            string clearing;
+            int chosen = 0;
+            string ausgabe = "";
+            int maxweight = 50;
+            int endvalue = 0;
+            string final;
+            int endweight = 50;
 
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(time);//Für Verzögerung
             gameObject.GetComponent<Speechbubble>().clear();
             gameObject.GetComponent<Speechbubble>().addText(elsa);
 
+            //Anzeige der erstellten Gegenstände und ihrer Attribute im Pseudocode
             for (int i = 0; i < 10; i++)
             {
                 yield return new WaitForSeconds(time);
@@ -40,8 +42,7 @@ public class DemoGreedy : MonoBehaviour
                 gameObject.GetComponent<PseudocodeText>().addText(itemnames);
             }
 
-            string clearing;
-
+            //Anzeige über Leerung des Pseudocode-Fensters
             gameObject.GetComponent<Speechbubble>().clear();
             yield return new WaitForSeconds(time);
             clearing = "Fenster wird in 6 Sekunden geleert.\n";
@@ -56,7 +57,7 @@ public class DemoGreedy : MonoBehaviour
             gameObject.GetComponent<PseudocodeText>().clear();
             gameObject.GetComponent<Speechbubble>().clear();
 
-            //Item Value/Weight Sortierung
+            //Gegenstand-Wert-Gewicht-Sortierung per Austauschsortierung (Bubblesort/Blasensortierung)
             int sorthelp;
             float floathelp;
             string namehelp;
@@ -90,6 +91,7 @@ public class DemoGreedy : MonoBehaviour
                 }
             }
 
+            //Anzeige Austauschsortierung
             elsa = "Die Items werden durch Bubblesort beginnend mit dem höchsten Wert/Gewicht-Quotienten sortiert";
             gameObject.GetComponent<Speechbubble>().addText(elsa);
 
@@ -99,23 +101,18 @@ public class DemoGreedy : MonoBehaviour
             yield return new WaitForSeconds(time);
             yield return new WaitForSeconds(time);
 
+            //Anzeige Sprechblase Greedyalgorithmus
             gameObject.GetComponent<Speechbubble>().clear();
             elsa = "Der Algortihmus wählt die Items in der sortierten Reihenfolge aus, wenn das Item nicht zu schwer ist.";
             gameObject.GetComponent<Speechbubble>().addText(elsa);
 
-
             //Greedyalgorithmusberechnung
-
-            int chosen = 0;
-            string ausgabe = "";
-            int maxweight = 50;
-            int endvalue = 0;
             yield return new WaitForSeconds(time);
             if (0 <= (maxweight - weight[0]) & value[0] != 0 & chosen < 7)
             {
                 maxweight = maxweight - weight[0];
                 endvalue = endvalue + value[0];
-                ausgabe = "Der Gegenstand " + name[0] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[0] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[0].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -126,7 +123,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[1];
                 endvalue = endvalue + value[1];
-                ausgabe = "Der Gegenstand " + name[1] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[1] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[1].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -136,7 +133,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[2];
                 endvalue = endvalue + value[2];
-                ausgabe = "Der Gegenstand " + name[2] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[2] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[2].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform; 
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -146,7 +143,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[3];
                 endvalue = endvalue + value[3];
-                ausgabe = "Der Gegenstand " + name[3] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[3] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[3].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -156,7 +153,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[4];
                 endvalue = endvalue + value[4];
-                ausgabe = "Der Gegenstand " + name[4] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[4] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[4].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -166,7 +163,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[5];
                 endvalue = endvalue + value[5];
-                ausgabe = "Der Gegenstand " + name[5] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[5] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[5].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -176,7 +173,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[6];
                 endvalue = endvalue + value[6];
-                ausgabe = "Der Gegenstand " + name[6] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[6] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[6].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -186,7 +183,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[7];
                 endvalue = endvalue + value[7];
-                ausgabe = "Der Gegenstand " + name[7] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[7] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[7].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -196,7 +193,7 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[8];
                 endvalue = endvalue + value[8];
-                ausgabe = "Der Gegenstand " + name[8] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand " + name[8] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[8].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
@@ -206,19 +203,19 @@ public class DemoGreedy : MonoBehaviour
             {
                 maxweight = maxweight - weight[9];
                 endvalue = endvalue + value[9];
-                ausgabe = "Der Gegenstand "+name[9] + " wurde ausgewählt\nund in das Nest gelegt.\n";
+                ausgabe = "Der Gegenstand "+name[9] + " wurde ausgewählt\nund in das Nest gelegt.\n\n";
                 objects[9].transform.parent = gameObject.GetComponent<ItemDemo>().getNestSlot(chosen).transform;
                 chosen++;
                 gameObject.GetComponent<PseudocodeText>().addText(ausgabe);
             }
 
-            string final;
-            int endweight = 50 - maxweight;
-
+            //Ausgabe Endergebnis
+            endweight = 50 - maxweight;
             yield return new WaitForSeconds(time); 
             final = "Der Algorithmus hat eine Lösung\nmit einem Wert von " + endvalue + " \nund einem Gewicht von " + endweight + " berechnet.";
-            gameObject.GetComponent<PseudocodeText>().addText(final);
             gameObject.GetComponent<Speechbubble>().clear();
+            gameObject.GetComponent<Speechbubble>().addText(final);
+            
         }
     }
 }

@@ -7,6 +7,7 @@ public class UbungScreenSwitcher : MonoBehaviour
 {
     public bool activePopup = false;
 
+    //Hauptmenüknopf ist während aktiven Popup deaktiviert
     public void toMain() {
         activePopup = gameObject.GetComponent<GlobalValues>().getPop();
         if(!activePopup) {

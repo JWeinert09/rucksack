@@ -11,10 +11,12 @@ public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Transform startParent;
     Text item_Text;
 
+    //Initalisierung Textanzeige
     void Start() {
         item_Text = GameObject.Find("Text_Item").GetComponent<Text>();
     }
 
+    //Aufnahme des Gegenstandes
     public void OnBeginDrag(PointerEventData eventData)
     {
         itemBeingDragged = gameObject;
@@ -24,11 +26,13 @@ public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         item_Text.text = "Aktuelles Item: " + itemBeingDragged.GetComponent<ItemValues>().name + "\nGewicht: " + itemBeingDragged.GetComponent<ItemValues>().weight + ". Wert: " + itemBeingDragged.GetComponent<ItemValues>().value;
     }
 
+    //Umherziehen des Gegenstandes
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
     }
 
+    //Ablegen des Gegenstandes
     public void OnEndDrag(PointerEventData eventData)
     {
         itemBeingDragged = null;

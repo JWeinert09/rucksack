@@ -7,24 +7,15 @@ public class Speechbubble : MonoBehaviour
 {
     public Text b;
 
+    //Anfügen von Text an Sprechblase
     public void addText(string input)
     {
         b.text = b.text + input;
     }
 
+    //Leeren der Sprechblase
     public void clear()
     {
         b.text = "";
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

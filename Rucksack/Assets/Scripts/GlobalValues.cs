@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GlobalValues : MonoBehaviour
 {
+    //Deaktivierung der Knöpfe bei aktivem Popup
     private bool activePopup = false;
     //In Nest befindliche Items
     int[] values = new int[10];
@@ -27,6 +28,7 @@ public class GlobalValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Initalisierung der Arrays
         for(int i = 0; i < values.Length; i++) {
             values[i] = 0;
             weights[i] = 0;
@@ -42,10 +44,12 @@ public class GlobalValues : MonoBehaviour
         this.refresh();
     }
 
+    //Schöner Name
     public bool getPop() {
         return activePopup;
     }
 
+    //Hineinlegen eines Gegenstandes in das Nest
     public void addItem(int id, int v, int w, string n) {
         values[id] = v;
         weights[id] = w;
@@ -58,6 +62,7 @@ public class GlobalValues : MonoBehaviour
         }
     }
 
+    //Entfernen eines Gegenstandes aus dem Nest
     public void removeItem(int id) {
         values[id] = 0;
         weights[id] = 0;
@@ -65,6 +70,7 @@ public class GlobalValues : MonoBehaviour
         this.refresh();
     }
 
+    //Berechnung der Gegenstandswerte im Nest
     public int getGlobalValue() {
         int gv = 0;
         for(int i = 0; i < values.Length; i++) {
@@ -73,6 +79,7 @@ public class GlobalValues : MonoBehaviour
         return gv;
     } 
 
+    //Berechnung der Gegenstandsgewichte im Nest
     public int getGlobalWeight() {
         int gw = 0;
         for(int i = 0; i < weights.Length; i++) {
@@ -81,11 +88,13 @@ public class GlobalValues : MonoBehaviour
         return gw;
     }
 
+    //Initalisierung
     public void initialising() {
         textValues.text = "0";
         textWeights.text = "0";
     }
 
+    //Aktualisieren der Anzeigen für Gewicht/Wert
     public void refresh() {
         int v = this.getGlobalValue();
         int w = this.getGlobalWeight();
@@ -93,16 +102,11 @@ public class GlobalValues : MonoBehaviour
         textWeights.text = w.ToString();
     }
 
+    //Vergleich des Ergebnis des Spielers mit dem Algorihmus
     public void check() {
         if(!activePopup) {
             Text[] check_text = pop_test.GetComponentsInChildren<Text>();
             System.Random random = new System.Random();
-            /* string t = "Das Nest enthält: \n";
-            for(int i = 0; i < values.Length; i++) {
-                if(values[i] != 0) {
-                    t = t + names[i] + ": Wert: " + values[i] + ". Gewicht: " + weights[i] + ".\n";
-                }
-            } */
             string txt = gameObject.GetComponent<UbungGreedy>().greedy(givenWeights, givenValues, givenNames, names);
             check_text[1].text = txt;
             Instantiate(pop_test, new Vector3(573, 219, 5), Quaternion.identity);

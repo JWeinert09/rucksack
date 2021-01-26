@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScreenSwitcher : MonoBehaviour
 {
+    //Zur Navigation zwischen den einzelnen X-Szenen
     public void toMain() {
         SceneManager.LoadScene("Hauptmenu");
     }
@@ -29,6 +30,7 @@ public class ScreenSwitcher : MonoBehaviour
         SceneManager.LoadScene("Demo");
     }
 
+    //Beenden der Anwendung
     public void quit() {
         Application.Quit();
     }

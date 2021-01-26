@@ -3,34 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OpenLinks : MonoBehaviour {
-    public bool link1;
-    public bool link2;
-    public bool link3;
-    public bool link4;
-    public bool link5;
-    public bool link6;
 
-     void OnMouseUp(){
-        if(link1) {
-            this.openlink1();
-        }
-        if(link2) {
-            this.openlink2();
-        }
-       if(link3) {
-            this.openlink3();
-        }
-        if(link4) {
-            this.openlink4();
-        }
-        if(link5) {
-            this.openlink5();
-        }
-        if(link6) {
-            this.openlink6();
-        }
-    }
-
+    //Aufrufen der im Wiki angegebenen Links
     public void openlink1() {
         Debug.Log("link");
         Application.OpenURL("https://www.fastleansmart.com/blog/das-rucksackproblem/");

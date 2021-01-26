@@ -451,13 +451,13 @@ MonoBehaviour:
     m_LineSpacing: 0.7
   m_Text: '
 
-    Design, Projektleiter, Teamleiter Design
+    Projektleiter, Teamleiter Design
 
     Pamela Weitprecht
 
 
-    Programming,
-    Projektmanager
+    Projektmanager,
+    "Programming"
 
     Marc Peter
 
@@ -484,8 +484,8 @@ MonoBehaviour:
 
 
 
-    Programming,
-    Teamleiter Programming
+    Teamleiter
+    Programming
 
     Nikolas Weber
 

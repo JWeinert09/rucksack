@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
+    //Verankerung der Gegenständer*innen
     public GameObject controller;
     public GameObject item
     {
@@ -18,6 +19,7 @@ public class Slot : MonoBehaviour, IDropHandler
         }
     }
 
+    //Ablegen des Gegenstandes
     public void OnDrop(PointerEventData eventData)
     {
         if (!item)

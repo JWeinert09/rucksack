@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class ItemValues : MonoBehaviour
 {
-
+    //Attribute des Gegenstandes -> Wird bei Instanziieren des Prefabs mit Werten befüllt
     public int id;
     public int weight;
     public int value;
     public string name;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

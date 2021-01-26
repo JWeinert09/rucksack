@@ -8,26 +8,13 @@ public class PseudocodeText : MonoBehaviour
     public Text t;
     public Text elster;
 
-    public void elsterSay(string s) {
-        elster.text = s;
-    }
-
+    //Anfügen von Text an den Pseudocode
     public void addText(string input) {
         t.text = t.text + input;
     }
 
+    //Leeren des Pseudocodefensters 
     public void clear() {
         t.text = "";
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

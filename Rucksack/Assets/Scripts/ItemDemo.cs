@@ -5,6 +5,7 @@ using System.Linq;
 
 public class ItemDemo : MonoBehaviour
 {
+    //Slots der Gegenstandsleiste
     public GameObject islot1;
     public GameObject islot2;
     public GameObject islot3;
@@ -16,6 +17,7 @@ public class ItemDemo : MonoBehaviour
     public GameObject islot9;
     public GameObject islot10;
 
+    //Slots des Nests
     public GameObject nslot1;
     public GameObject nslot2;
     public GameObject nslot3;
@@ -24,6 +26,7 @@ public class ItemDemo : MonoBehaviour
     public GameObject nslot6;
     public GameObject nslot7;
 
+    //Prefabs der Gegenstände
     public GameObject preRing;
     public GameObject preAlu;
     public GameObject preBrille;
@@ -73,17 +76,7 @@ public class ItemDemo : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*if(Input.GetKeyDown(KeyCode.Space)) {
-            spawnItem(0, 0);
-            spawnItem(2,1);
-            spawnItem(7,2);
-            Debug.Log("Event");
-        } */
-    }
-
+    //Auswahl des Slots der Gegenstandsleiste
     public GameObject getSlot(int i) {
         switch(i) {
             case 0:
@@ -112,6 +105,7 @@ public class ItemDemo : MonoBehaviour
         }
     }
 
+    //Auswahl des Slots des Nestes
     public GameObject getNestSlot(int i) {
         switch(i) {
             case 0:
@@ -134,34 +128,25 @@ public class ItemDemo : MonoBehaviour
         }  
     }
 
+    //Generieren von 10 Zufallszahlen
      public int[] generator() {
         int[] rng = new int[10];
-        bool db = true;
         int r = 1;
         for(int i = 0; i < rng.Length; i++) {
             for(int j = 0; j < 100; j++) {//Verbesserung des Ergebnises, macht Dopplungen unwahrscheinlicher -> Dauert zu lange für komplettes Filtern
                 r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
                 if(rng.Contains(r)) {
-                    //Continue;
                 }
                 else {
                     rng[i] = r;
                 }
-               /*while(db) {
-                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
-                if(rng.Contains(r)) {
-                    db = false;
-                }
-                else {
-                    db = true;
-                }
-            }*/
             }
-            //rng[i] = r;
+            
         }
         return rng;
     }
 
+    //Erschaffen der Gegenstände für die Demo
     public void spawnItem(int rand, int slot) {
         if(slot < 0 | slot > 10) {
             Debug.Log("Error");

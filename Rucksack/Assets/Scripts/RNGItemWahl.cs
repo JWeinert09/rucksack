@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RNGItemWahl : MonoBehaviour
-{
-    private int[] rng = new int[10];
-    
+{   
+    //Hier könnte ihre Werbung stehen (Zufallsgenerator mit herauskommentierten Versuchen)
     public int generateNumber() {
         return Random.Range(1, 30);
         /*System.Random r1 = new System.Random();
@@ -48,27 +47,4 @@ public class RNGItemWahl : MonoBehaviour
             return z5;
         }
     */}
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {   
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            for(int i = 0; i < rng.Length; i++) {
-                rng[i] = (int)this.generateNumber();
-            }
-
-            for(int i = 0; i < rng.Length; i++) {
-                Debug.Log("Zufallszahl: " + rng[i]);
-            }
-        } 
-
-        /*for(int i = 0; i < 100; i++) {
-            Debug.Log("Zufallszahl: " + this.generateNumber());
-        }*/
-    }
 }

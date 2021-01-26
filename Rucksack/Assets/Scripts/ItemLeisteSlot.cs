@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ItemLeisteSlot : MonoBehaviour, IDropHandler
 {
+    //Verankerung der Gegenstände im Slot
     public GameObject controller;
     public GameObject item
     {
@@ -18,12 +19,12 @@ public class ItemLeisteSlot : MonoBehaviour, IDropHandler
         }
     }
 
+    //Hereinlegen der Gegenstände in die Slots
     public void OnDrop(PointerEventData eventData)
     {
         if (!item)
         {
             DragHandeler.itemBeingDragged.transform.SetParent(transform);
-            //Debug.Log(DragHandeler.itemBeingDragged.GetComponent<ItemValues>().name + " hat einen Wert von: " + DragHandeler.itemBeingDragged.GetComponent<ItemValues>().value + " und ein Gewicht von: " + DragHandeler.itemBeingDragged.GetComponent<ItemValues>().weight);
             controller.GetComponent<GlobalValues>().removeItem(DragHandeler.itemBeingDragged.GetComponent<ItemValues>().id);
         }
     }

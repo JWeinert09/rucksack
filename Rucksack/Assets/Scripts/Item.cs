@@ -5,6 +5,7 @@ using System.Linq;
 
 public class Item : MonoBehaviour
 {
+    //Slots der Gegenstandsleiste
     public GameObject slot1;
     public GameObject slot2;
     public GameObject slot3;
@@ -16,6 +17,7 @@ public class Item : MonoBehaviour
     public GameObject slot9;
     public GameObject slot10;
 
+    //Prefabs der Gegenstände
     public GameObject preRing;
     public GameObject preAlu;
     public GameObject preBrille;
@@ -66,44 +68,24 @@ public class Item : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*if(Input.GetKeyDown(KeyCode.Space)) {
-            spawnItem(0, 0);
-            spawnItem(2,1);
-            spawnItem(7,2);
-            Debug.Log("Event");
-        } */
-    }
     //Generieren von 10 Zufallszahlen
     public int[] generator() {
         int[] rng = new int[10];
-        bool db = true;
         int r = 1;
         for(int i = 0; i < rng.Length; i++) {
             for(int j = 0; j < 100; j++) {//Verbesserung des Ergebnises, macht Dopplungen unwahrscheinlicher -> Dauert zu lange für komplettes Filtern
                 r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
                 if(rng.Contains(r)) {
-                    //Continue;
                 }
                 else {
                     rng[i] = r;
                 }
-               /*while(db) {
-                r = gameObject.GetComponent<RNGItemWahl>().generateNumber();
-                if(rng.Contains(r)) {
-                    db = false;
-                }
-                else {
-                    db = true;
-                }
-            }*/
             }
-            //rng[i] = r;
         }
         return rng;
     }
+
+    //Auswahl des Slots in der Gegenstandsleiste
     public GameObject getSlot(int i) {
         switch(i) {
             case 0:
@@ -132,21 +114,18 @@ public class Item : MonoBehaviour
         }
     }
 
+    //Instanziierung der Gegenstände
     public void spawnItem(int rand, int slot) {
         if(slot < 0 | slot > 10) {
             Debug.Log("Error");
             return;
         }
 
-        
-
+        //komplette Gegenstandsliste, aus welcher 10 ausgewählt werden
         switch(rand) {
             case 0:
                 go = Instantiate(preRing, new Vector3(385, -80, 44), Quaternion.identity);
                 go.transform.parent = this.getSlot(slot).transform;
-                /*particle = Instantiate(Preparticle, go.transform.position, Quaternion.identity);
-                particle.transform.parent = go.transform;
-                particle.transform.GetChild(0).transform.localScale = new Vector3(80,80,5); */
                 go.GetComponent<ItemValues>().name = "Ring";
                 go.GetComponent<ItemValues>().value = 18;
                 go.GetComponent<ItemValues>().weight = 3;
