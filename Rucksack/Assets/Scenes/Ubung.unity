@@ -3682,7 +3682,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Du befindest dich nun im Try-it-Yourself Screen. \nHier kannst du deine
     eigenen F\xE4higkeiten unter Beweis stellen und gegen den Algorithmus antreten.
-    Aber Vorsicht, dieser Ast ist sehr instabil!"
+    Aber Vorsicht, dieser Ast ist sehr instabil und h\xE4lt nur ein Gewicht von 50
+    aus!"
 --- !u!222 &1805394205
 CanvasRenderer:
   m_ObjectHideFlags: 0
